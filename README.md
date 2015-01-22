@@ -6,9 +6,9 @@
       is wrong, the program should return some sort of indication as to how wrong (e.g. The 
       number is too high or too low). If the user guesses correctly, a positive indication should
       appear. You’ll need functions to check if the user input is an actual number, to see the 
-      difference between the inputted number and the randomly generated numbers, and to then compare 
-      the numbers. The program must be able to handle an error if the input is not an integer 
-      (e.g. a letter).
+      difference between the inputted number and the randomly generated numbers, and to then 
+      compare the numbers. The program must be able to handle an error if the input is not an 
+      integer (e.g. a letter).
 
 ## Concepts required
 
