@@ -33,7 +33,8 @@ countinue_all_game = True # Controls if the application run again.
 print instructions # Display instructions
 
 while countinue_all_game == True:
-    random_number = random.randint(1, 21)
+    random_number = random.randint(1, 20)
+    print "++++++ %s ++++++" % random_number
     turn = 1 # Controls opportunities to guess number
     countinue_turn = True
     aceptChoise = False
@@ -50,7 +51,24 @@ while countinue_all_game == True:
                     if user_input > 0 and user_input <= 20:
                             if user_input == random_number:
                                 print "    * You Win!!!"
-                                turn += 1
+                                print "\n\n Want to play again?"
+                                while aceptChoise == False:
+                                    try:
+                                        choise = raw_input("\n\n please enter \"Y\" to play again or enter \"N\" to Exit: ")
+                                        choise = choise.lower()
+                                        if choise == "y":
+                                            countinue_turn = False
+                                            aceptChoise = True
+                                        elif choise == "n":
+                                            print "\n See you soon!"
+                                            countinue_all_game = False
+                                            countinue_turn = False
+                                            aceptChoise = True
+                                        else:
+                                            print "Your choice does not exist..."
+                                            pass
+                                    except ValueError as error:
+                                        print "Error ocurred: %s" % error
                             elif user_input > random_number:
                                 print "    * You guessed too high, please try again"
                                 turn += 1
