@@ -41,23 +41,32 @@ while countinue_all_game == True:
     while countinue_turn == True:
         # This "try" controls the errors that occurred in the application.
         try:
-            user_input = raw_input("\n\n Please enter a number: ")
-            if user_input.isdigit() == True:
-                user_input = int(user_input)
-                # Verify if input is one between twenty 
-                if user_input > 0 and user_input <= 20:
-                        if user_input == random_number:
-                            print " You Win!"
-                        elif user_input > random_number:
-                            print " You guessed to high, please try again"
-                            pass
-                        elif user_input < random_number:
-                            print " You guessed to low, please try again"
+            if turn <= 4:
+                print "\n>>>> Your number turn is: %s <<<<" % turn
+                user_input = raw_input("\n    * Please enter a number: ")
+                if user_input.isdigit() == True:
+                    user_input = int(user_input)
+                    # Verify if input is one between twenty 
+                    if user_input > 0 and user_input <= 20:
+                            if user_input == random_number:
+                                print "    * You Win!!!"
+                                turn += 1
+                            elif user_input > random_number:
+                                print "    * You guessed too high, please try again"
+                                turn += 1
+                            elif user_input < random_number:
+                                print "    * You guessed too low, please try again"
+                                turn += 1
+                    else:
+                        print "    * You only can enter numbers the one to twenty"
+                        turn += 1
                 else:
-                    print " You only can enter numbers the one to twenty"
+                    print """
+                    \r    * You can not enter letters, special caracters or decimal numbers; 
+                    \r      Please enter a integer number"""
+                    turn += 1
             else:
-                print """
-                \r You can not enter letters, special caracters or decimal numbers; 
-                \r Please enter a integer number"""
+                countinue_turn = False
+                countinue_all_game = False
         except ValueError as error:
             print " Error ocurred: %s, plese try again" % error
