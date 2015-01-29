@@ -84,7 +84,25 @@ while countinue_all_game == True:
                     \r      Please enter a integer number"""
                     turn += 1
             else:
-                countinue_turn = False
-                countinue_all_game = False
+                print "\n\n Game Over!"
+                print random_number
+                print "\n\n Want to play again?"
+                while aceptChoise == False:
+                    try:
+                        choise = raw_input("\n\n please enter \"Y\" to play again or enter \"N\" to Exit: ")
+                        choise = choise.lower()
+                        if choise == "y":
+                            countinue_turn = False
+                            aceptChoise = True
+                        elif choise == "n":
+                            print "\n See you soon!"
+                            countinue_all_game = False
+                            countinue_turn = False
+                            aceptChoise = True
+                        else:
+                            print "Your choice does not exist..."
+                            pass
+                    except ValueError as error:
+                        print "Error ocurred: %s" % error
         except ValueError as error:
             print " Error ocurred: %s, plese try again" % error
